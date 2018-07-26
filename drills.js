@@ -4,6 +4,17 @@ const util = require('util');
 
 const LinkedList = require('./linkedlist.js');
 
+function displayList(list){
+    let item= list.head
+    while(item !== null){
+        console.log(item.value);
+        item = item.next;
+    }
+}
+
+
+
+
 function main() {
     let SLL = new LinkedList();
     SLL.insertLast('Apollo');
@@ -17,9 +28,15 @@ function main() {
     // console.log(SLL.find('Apollo'))
 
     // console.log( JSON.stringify(SLL, null, 4) )
-    SLL.remove('squirrel');
+    // SLL.remove('squirrel');
+    SLL.insertBefore('athena', 'Boomer');
     SLL.insertAfter('hotdog', 'Helo');
-    console.log(util.inspect(SLL, false, null));
+    SLL.insertAt('kat', 2)
+    SLL.remove('Tauhida');
+
+    displayList(SLL)
+    // console.log(util.inspect(SLL, false, null));
+
 }
 
 main();
