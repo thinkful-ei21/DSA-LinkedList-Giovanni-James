@@ -51,6 +51,24 @@ function findLast(list) {
     return item;
 }
 
+function reverseList(list) {}
+
+function thirdFromTheEnd(list) {
+    let item = list.head;
+    let currentNode = list.head;
+
+    // find last item in the list
+    // count how many items there are
+    // then go back 3 spots
+
+    let nodeIndex = 0;
+    while (item.next !== null) {
+        nodeIndex++;
+        item = item.next;
+    }
+    console.log(nodeIndex);
+}
+
 function main() {
     let SLL = new LinkedList();
     SLL.insertLast('Apollo');
@@ -61,24 +79,24 @@ function main() {
     SLL.insertLast('Tauhida');
 
     // console.log(util.inspect(SLL, false, null))
-    // console.log(SLL.find('Apollo'))
 
     // console.log( JSON.stringify(SLL, null, 4) )
-    // SLL.remove('squirrel');
     SLL.insertBefore('athena', 'Boomer');
     SLL.insertAfter('hotdog', 'Helo');
     SLL.insertAt('kat', 2);
     SLL.remove('Tauhida');
 
     // displayList(SLL);
-    console.log(util.inspect(SLL, false, null));
+    // console.log(util.inspect(SLL, false, null));
 
     // displayList(SLL);
     // console.log(`This list has ${listSize(SLL)} items`);
     // console.log(isEmpty(SLL));
 
-    console.log(findPrevious('Helo', SLL));
-    console.log(findLast(SLL));
+    // console.log(findPrevious('Helo', SLL));
+    // console.log(findLast(SLL));
+
+    console.log(thirdFromTheEnd(SLL));
 }
 
 main();
