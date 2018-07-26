@@ -100,6 +100,15 @@ class LinkedList {
         //here we use that stored 'next' value to point to the node *after* our insertion
         currentNode.next = new Node(item, nextNode);
     }
+
+    insertAfter(item, after) {
+        const previousNode = this.find(after);
+
+        //previousNode's next has to be item
+        const nextNode = previousNode.next;
+
+        previousNode.next = new Node(item, nextNode);
+    }
 }
 
 class Node {

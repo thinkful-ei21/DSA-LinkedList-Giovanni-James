@@ -18,6 +18,8 @@ function main() {
 
     // console.log( JSON.stringify(SLL, null, 4) )
     SLL.remove('squirrel');
+    SLL.insertAfter('hotdog', 'Helo');
+    console.log(util.inspect(SLL, false, null));
 }
 
 main();
