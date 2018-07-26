@@ -51,7 +51,38 @@ function findLast(list) {
     return item;
 }
 
-function reverseList(list) {}
+function reverse(list){
+
+    let currentNode = list.head;
+    let previousNode = null;
+    while(currentNode.next !== null){
+        displayList(list);
+        console.log('and', previousNode);
+      let nextNode = currentNode.next;
+      currentNode.next = previousNode;
+      previousNode = currentNode;
+      currentNode = nextNode;
+    }
+    currentNode.next = previousNode;
+    list.head = currentNode;
+
+    return list;
+  }
+  
+  function reverse2(list, currentNode = list.head, prevNode = null){
+  
+    if(currentNode.next === null){
+      list.head = currentNode;
+      currentNode.next = prevNode;
+      return list;
+    }
+    else{
+      let nextNode = currentNode.next;
+      currentNode.next = prevNode;
+      return reverse2(list, nextNode, currentNode);
+    }
+  
+  }
 
 function thirdFromTheEnd(list) {
     let item = list.head;
@@ -96,7 +127,10 @@ function main() {
     // console.log(findPrevious('Helo', SLL));
     // console.log(findLast(SLL));
 
-    console.log(thirdFromTheEnd(SLL));
+    // displayList(reverse(SLL))
+
+    displayList(reverse2(SLL))
+    // console.log(thirdFromTheEnd(SLL));
 }
 
 main();
